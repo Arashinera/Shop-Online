@@ -13,12 +13,18 @@ public class AppController {
     private final AppView view = new AppView();
     private final static String CURRENCY = "EUR";
 
+
     public void getPayment() {
+        //поміщаємо масив getData у data :
         String[] data = view.getData();
+
+        //відправляємо дані з data до відповідних сутностей для обробки бізнес логіки :
         Buyer client = getBuyer(data);
         Purchase purchase = getPurchase(data);
         Product productName = getProduct(data);
         String output;
+
+        //створюємо умови для використання базової або модифікованої бізнес логіки та виводимо результати на екран
         if (purchase.getChoice() == 1) {
             AppBasePurchaseModel model = new AppBasePurchaseModel();
             String paymentBase = Rounder.roundValue(model.calcPayment(purchase));
@@ -48,9 +54,7 @@ public class AppController {
     }
 
     private Purchase getPurchase(String[] data) {
-        return new Purchase(Integer.parseInt(data[4]),
-                Double.parseDouble(data[5]),
-                Integer.parseInt(data[6])
+        return new Purchase(Integer.parseInt(data[4]), Double.parseDouble(data[5]), Integer.parseInt(data[6])
         );
     }
 }

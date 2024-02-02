@@ -5,6 +5,7 @@ import app.model.AppModel;
 
 public class AppDeliveryPurchaseModel implements AppModel {
 
+    //створюємо масив даних для калькуляції ціни доставки :
     double[] deliveryRates = {3, 5, 10};
 
     @Override

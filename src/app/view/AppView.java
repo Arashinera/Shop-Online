@@ -5,10 +5,14 @@ import java.util.Locale;
 
 public class AppView {
 
+    //налаштування сканеру :
     private final Scanner input = new Scanner(System.in);
 
     public String[] getData() {
+        //налаштування локейлу :
         input.useLocale(Locale.ENGLISH);
+
+        //запити на ввод інформації :
         System.out.println("NAVI TECHNO SHOP :" +
                 "\nPlease, enter buyer name :");
         String name = input.nextLine().trim();
@@ -28,9 +32,12 @@ public class AppView {
                 2) To Home Delivery""");
         String choice = input.nextLine().trim();
         input.close();
+
+        //повернення нових значень
         return new String[]{name, email, phoneNumber, productName, quantity, price, choice};
     }
 
+    //вивод на екран :
     public void getOutput(String output) {
         System.out.println(output);
     }
